@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="并非菜鸟的博客">
 <meta property="og:description" content="Kafka在SpringBoot 2.0中的整合-1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-02T10:44:05.295Z">
+<meta property="og:updated_time" content="2019-04-04T07:45:12.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kafka在SpringBoot 2.0中的整合-1">
 <meta name="twitter:description" content="Kafka在SpringBoot 2.0中的整合-1">
@@ -223,9 +223,9 @@ var _hmt = _hmt || [];
 <ol>
 <li>Poll 数据</li>
 <li>执行消费逻辑</li>
-<li>再次 poll 数据</li>
+<li>再次 poll 数据<a id="more"></a>
+##2.2 负载均衡</li>
 </ol>
-<p>##2.2 负载均衡</p>
 <p>每个 Consumer Group 可以包含多个消费实例，即可以启动多个 Kafka Consumer，并把参数 group.id 设置成相同的值。属于同一个 Consumer Group 的消费实例会负载消费订阅的 Topic。</p>
 <p>举例：Consumer Group A 订阅了 Topic A，并开启三个消费实例 C1、C2、C3，则发送到 Topic A 的每条消息最终只会传给 C1、C2、C3 的某一个。Kafka 默认会均匀地把消息传给各个消息实例，以做到消费负载均衡。</p>
 <p>Kafka 负载消费的内部原理是，把订阅的 Topic 的分区，平均分配给各个消费实例。因此，消费实例的个数不要大于分区的数量，否则会有实例分配不到任何分区而处于空跑状态。这个负载均衡发生的时间，除了第一次启动上线之外，后续消费实例发生重启、增加、减少等变更时，都会触发一次负载均衡。</p>

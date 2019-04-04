@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://camo.githubusercontent.com/5664d7af9b355209fac47098d3b51f64c4e265c7/68747470733a2f2f7265646973736f6e2e6f72672f6c6f676f2e706e67">
 <meta property="og:image" content="https://github.com/redisson/redisson/wiki/%E7%9B%AE%E5%BD%95">
-<meta property="og:updated_time" content="2018-08-07T07:55:59.540Z">
+<meta property="og:updated_time" content="2019-04-04T07:44:33.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redisson 的介绍与使用">
 <meta name="twitter:description" content="Redisson 的介绍与使用">
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p><img src="https://camo.githubusercontent.com/5664d7af9b355209fac47098d3b51f64c4e265c7/68747470733a2f2f7265646973736f6e2e6f72672f6c6f676f2e706e67" alt="Redisson-1"><br>Redisson是一个在Redis的基础上实现的Java驻内存数据网格（In-Memory Data Grid）。它不仅提供了一系列的分布式的Java常用对象，还提供了许多分布式服务。其中包括(BitSet, Set, Multimap, SortedSet, Map, List, Queue, BlockingQueue, Deque, BlockingDeque, Semaphore, Lock, AtomicLong, CountDownLatch, Publish / Subscribe, Bloom filter, Remote service, Spring cache, Executor service, Live Object service, Scheduler service) Redisson提供了使用Redis的最简单和最便捷的方法。Redisson的宗旨是促进使用者对Redis的关注分离（Separation of Concern），从而让使用者能够将精力更集中地放在处理业务逻辑上。</p>
+        <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p><img src="https://camo.githubusercontent.com/5664d7af9b355209fac47098d3b51f64c4e265c7/68747470733a2f2f7265646973736f6e2e6f72672f6c6f676f2e706e67" alt="Redisson-1"><br>Redisson是一个在Redis的基础上实现的Java驻内存数据网格（In-Memory Data Grid）。它不仅提供了一系列的分布式的Java常用对象，还提供了许多分布式服务。其中包括(BitSet, Set, Multimap, SortedSet, Map, List, Queue, BlockingQueue, Deque, BlockingDeque, Semaphore, Lock, AtomicLong, CountDownLatch, Publish / Subscribe, Bloom filter, Remote service, Spring cache, Executor service, Live Object service, Scheduler service) Redisson提供了使用Redis的最简单和最便捷的方法。Redisson的宗旨是促进使用者对Redis的关注分离（Separation of Concern），从而让使用者能够将精力更集中地放在处理业务逻辑上。<br><a id="more"></a></p>
 <h1 id="二、分布式锁"><a href="#二、分布式锁" class="headerlink" title="二、分布式锁"></a>二、分布式锁</h1><p>今天也只是就Redisson分布式锁这一部分进行讲解。<br>在很多时候，一个服务器已经不满足我们对服务性能的要求了，所以我们引进和很多相关的技术，引入了分布式服务的方式，但是这样既带来了方便，其实也带来了问题，多台服务器一起运行相同的代码，一旦两台服务运行了相同的代码，那就要保证服务”<strong>幂等性</strong>“的设计。而且要考虑服务并发带来的可能性问题。</p>
 <p>那么我们现在引入分布式锁的概念，顾名思义，就是使用锁，将我们要紧行操作的对象或者数据加锁。操作后释放锁。使得此时操作这个对象的服务器只有一个（或者说只能对当前对象进行当前拿到锁的操作，拿不到锁的都不允许操作）。这样保证数据的每次操作前后都不会有问题。当然同一个服务器也只能对当前对象进行一个操作。</p>
 <p>其实为了保证这一点，其实还有很多锁，相信大家也知道，乐观锁，悲观锁、表锁、行锁等。</p>
